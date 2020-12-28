@@ -69,4 +69,11 @@ class FirestoreHelper with ChangeNotifier {
       notifyListeners();
     } catch (e) {}
   }
+
+  Future<void> deleteUser(String uid) async {
+    QuerySnapshot docs = await firestore.collection(uid).get();
+    docs.docs.forEach((QueryDocumentSnapshot element) {
+      deleteTask(element.id);
+    });
+  }
 }

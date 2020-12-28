@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/buttons/register_dialog.dart';
-import '../widgets/buttons/sign_in_dialog.dart';
+import '../widgets/dialogs/register_dialog.dart';
+import '../widgets/dialogs/sign_in_dialog.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

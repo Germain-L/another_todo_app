@@ -1,3 +1,4 @@
+import 'package:another_todo_app/widgets/dialogs/settings.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,12 +27,31 @@ class _HomeState extends State<Home> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       floatingActionButton: AnimatedFab(),
+      appBar: AppBar(
+        title: Text("TODO"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (BuildContext context) => SettingsSheet(),
+              );
+            },
+          )
+        ],
+      ),
       body: StreamBuilder(
         stream: firestore.getTasksStream(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             QuerySnapshot querySnapshot = snapshot.data;
             List<QueryDocumentSnapshot> docs = querySnapshot.docs;
+
+            if(docs.length <= 0) {
+              return Center(child: Text("No tasks added yet"));
+            }
 
             return ListView.builder(
               itemCount: docs.length,
