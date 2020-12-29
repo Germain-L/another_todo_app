@@ -50,12 +50,7 @@ class AuthProvider with ChangeNotifier {
         notifyListeners();
         return true;
       }
-    } catch (err) {
-      throw (err);
-    } catch (err) {
-      throw (err);
-    }
-
+    } catch (err) {}
     return false;
   }
 
@@ -65,8 +60,6 @@ class AuthProvider with ChangeNotifier {
       _isLoggedIn = false;
       user = null;
 
-      // TODO: this
-      // auth.currentUser.unlink();
       notifyListeners();
     } catch (err) {
       throw (err);
@@ -75,7 +68,18 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> signInWithGoogle() async {
     try {
-      await _googleSignIn.signIn();
+      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final UserCredential creds = await auth.signInWithCredential(credential);
+      user = creds.user;
+      _isLoggedIn = true;
+      notifyListeners();
     } catch (error) {
       throw (error);
     }

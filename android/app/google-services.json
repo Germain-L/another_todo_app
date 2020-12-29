@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1078272987722-cfqe5jborjfvur5gtfciqecdh7754145.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.germainleignel.another_todo_app",
+            "certificate_hash": "864993ec0c6b770e70b285f3bb7726cefe581b54"
+          }
+        },
+        {
           "client_id": "1078272987722-ifsectfh92b4el9aej8qcg9t015tn6lc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -7,7 +7,6 @@ import 'pages/home.dart';
 import 'pages/splash.dart';
 import 'provider/auth.dart';
 import 'provider/firestore.dart';
-import 'provider/navigation.dart';
 import 'provider/theme.dart';
 
 Future<void> main() async {
@@ -21,9 +20,6 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(
         create: (_) => ThemeProvider(),
-      ),
-      ChangeNotifierProvider(
-        create: (_) => Navigation(),
       ),
       ChangeNotifierProvider(
         // create: (_) => previousUser == null ? AuthProvider() : AuthProvider(user: previousUser),
@@ -48,8 +44,6 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final authProvider = Provider.of<AuthProvider>(context);
-    final navigationProvider = Provider.of<Navigation>(context);
-    final firestore = Provider.of<FirestoreHelper>(context);
 
     authProvider.trySignInSilent();
 

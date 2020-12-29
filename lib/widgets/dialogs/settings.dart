@@ -3,21 +3,14 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/auth.dart';
-import '../../provider/firestore.dart';
-import '../../provider/navigation.dart';
 import '../../provider/theme.dart';
 
 class SettingsSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // THEME
-    // LOGOUT
-    // DELETE ACCOUNT
 
-    final navigationProvider = Provider.of<Navigation>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
     final authProvider = Provider.of<AuthProvider>(context);
-    final firestore = Provider.of<FirestoreHelper>(context);
 
     return Card(
       child: Container(

@@ -1,14 +1,11 @@
-import '../widgets/dialogs/settings.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/task.dart';
-import '../provider/auth.dart';
 import '../provider/firestore.dart';
-import '../provider/navigation.dart';
-import '../provider/theme.dart';
 import '../widgets/buttons/animated_fab.dart';
+import '../widgets/dialogs/settings.dart';
 import '../widgets/tasks/task_widget.dart';
 
 class Home extends StatefulWidget {
@@ -19,9 +16,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    final navigationProvider = Provider.of<Navigation>(context);
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    final authProvider = Provider.of<AuthProvider>(context);
     final firestore = Provider.of<FirestoreHelper>(context);
 
     return Scaffold(
@@ -49,7 +43,7 @@ class _HomeState extends State<Home> {
             QuerySnapshot querySnapshot = snapshot.data;
             List<QueryDocumentSnapshot> docs = querySnapshot.docs;
 
-            if(docs.length <= 0) {
+            if (docs.length <= 0) {
               return Center(child: Text("No tasks added yet"));
             }
 
