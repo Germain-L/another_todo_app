@@ -1,3 +1,4 @@
+import 'package:another_todo_app/widgets/buttons/custom_material_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
@@ -46,32 +47,16 @@ class SettingsSheet extends StatelessWidget {
                 ),
               ],
             ),
-            MaterialButton(
-              highlightElevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              minWidth: MediaQuery.of(context).size.width * 0.95,
-              elevation: 2,
-              color: Theme.of(context).buttonColor,
+            CustomMaterialButton(
+              text: "Sign out",
               onPressed: () async {
                 await authProvider.signOut();
                 Navigator.pop(context);
               },
-              child: Text("Sign out"),
             ),
-            MaterialButton(
-              highlightElevation: 1,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              minWidth: MediaQuery.of(context).size.width * 0.95,
-              elevation: 2,
-              color: Theme.of(context).buttonColor,
-              onPressed: () {
-                showLicensePage(context: context);
-              },
-              child: Text("Licences"),
+            CustomMaterialButton(
+              text: "Licences",
+              onPressed: () => showLicensePage(context: context),
             ),
             // MaterialButton(
             //   minWidth: MediaQuery.of(context).size.width * 0.95,

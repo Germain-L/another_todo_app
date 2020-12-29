@@ -1,4 +1,5 @@
 import 'package:another_todo_app/provider/auth.dart';
+import 'package:another_todo_app/widgets/buttons/custom_material_button.dart';
 import 'package:another_todo_app/widgets/views/splash_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,21 +22,11 @@ class SplashScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  MaterialButton(
-                    highlightElevation: 1,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    minWidth: MediaQuery.of(context).size.width * 0.95,
-                    color: Theme.of(context).buttonColor,
-                    onPressed: () {
-                      authProvider.signInWithGoogle();
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Sign in with Google"),
-                    ),
+                  CustomMaterialButton(
+                    onPressed: authProvider.signInWithGoogle,
+                    text: "Sign in with Google",
                   ),
+                  
                   // MaterialButton(
                   //   minWidth: MediaQuery.of(context).size.width * 0.95,
                   //   color: Theme.of(context).buttonColor,

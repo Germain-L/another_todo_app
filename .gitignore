@@ -41,3 +41,4 @@ app.*.symbols
 app.*.map.json
 detective_connect.txt
 android/app/key.jks
+detective_connect.txt
