@@ -60,6 +60,8 @@ class AuthProvider with ChangeNotifier {
       _isLoggedIn = false;
       user = null;
 
+      await _googleSignIn.signOut();
+
       notifyListeners();
     } catch (err) {
       throw (err);

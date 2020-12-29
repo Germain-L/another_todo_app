@@ -22,7 +22,13 @@ class _HomeState extends State<Home> {
       extendBodyBehindAppBar: true,
       floatingActionButton: AnimatedFab(),
       appBar: AppBar(
-        title: Text("TODO"),
+        title: Text(
+          "Todo",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
@@ -58,7 +64,10 @@ class _HomeState extends State<Home> {
                       content: Text("${docs[index].data()["text"]} dismissed"),
                     ));
                   },
-                  background: Container(color: Colors.redAccent[400]),
+                  background: Card(
+                    elevation: 0,
+                    color: Colors.redAccent[400],
+                  ),
                   child: TaskCard(
                     task: Task(
                       task: docs[index].data()["text"],

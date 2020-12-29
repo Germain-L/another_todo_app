@@ -8,11 +8,13 @@ import '../../provider/theme.dart';
 class SettingsSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final themeProvider = Provider.of<ThemeProvider>(context);
     final authProvider = Provider.of<AuthProvider>(context);
 
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -45,6 +47,10 @@ class SettingsSheet extends StatelessWidget {
               ],
             ),
             MaterialButton(
+              highlightElevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
               minWidth: MediaQuery.of(context).size.width * 0.95,
               elevation: 2,
               color: Theme.of(context).buttonColor,
@@ -53,6 +59,19 @@ class SettingsSheet extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Text("Sign out"),
+            ),
+            MaterialButton(
+              highlightElevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              minWidth: MediaQuery.of(context).size.width * 0.95,
+              elevation: 2,
+              color: Theme.of(context).buttonColor,
+              onPressed: () {
+                showLicensePage(context: context);
+              },
+              child: Text("Licences"),
             ),
             // MaterialButton(
             //   minWidth: MediaQuery.of(context).size.width * 0.95,

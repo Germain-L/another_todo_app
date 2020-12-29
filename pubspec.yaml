@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -28,20 +28,28 @@ dependencies:
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
   flutter_icons: ^1.1.0
+  flutter_launcher_icons: ^0.8.1
   flutter_spinkit: ^4.1.2+1
   fluttertoast: ^7.1.6
   google_sign_in: ^4.5.6
   provider: ^4.3.2+3
+  shared_preferences: ^0.5.12+4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_icons:
+  # to update, run:
+  # flutter pub run flutter_launcher_icons:main
+  android: true
+  ios: true
+  image_path: assets/app_logo.png
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -59,15 +67,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  assets:
+    - assets/logo.png
+    - assets/app_logo.png
   fonts:
-    - family: Montserrat
+    - family: Inter
       fonts:
-        - asset: assets/Montserrat-Bold.ttf
+        - asset: assets/inter/Inter-Bold.ttf
           weight: 700
 
-        - asset: assets/Montserrat-Italic.ttf
-          style: italic
-
-        - asset: assets/Montserrat-Regular.ttf
+        - asset: assets/inter/Inter-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
