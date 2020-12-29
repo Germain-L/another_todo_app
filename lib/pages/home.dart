@@ -1,4 +1,4 @@
-import 'package:another_todo_app/widgets/dialogs/settings.dart';
+import '../widgets/dialogs/settings.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

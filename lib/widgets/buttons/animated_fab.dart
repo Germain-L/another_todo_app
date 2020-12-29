@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import '../../provider/firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../provider/firestore.dart';
 import '../tasks/new_task.dart';
 
 class AnimatedFab extends StatefulWidget {

@@ -12,6 +12,10 @@ import 'provider/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+
+  // User previousUser = await trySignInSilent();
+
   await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [
@@ -22,7 +26,8 @@ Future<void> main() async {
         create: (_) => Navigation(),
       ),
       ChangeNotifierProvider(
-        create: (_) => AuthProvider(),
+        // create: (_) => previousUser == null ? AuthProvider() : AuthProvider(user: previousUser),
+        create: (_) => AuthProvider()
       ),
       ChangeNotifierProvider(
         create: (_) => FirestoreHelper(),
@@ -45,6 +50,9 @@ class _AppState extends State<App> {
     final authProvider = Provider.of<AuthProvider>(context);
     final navigationProvider = Provider.of<Navigation>(context);
     final firestore = Provider.of<FirestoreHelper>(context);
+
+    authProvider.trySignInSilent();
+
     return MaterialApp(
       theme: themeProvider.isLightTheme ? ThemeData.light() : ThemeData.dark(),
       home: authProvider.isLoggedIn ? Home() : SplashScreen(),

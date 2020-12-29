@@ -1,12 +1,11 @@
-import 'package:another_todo_app/provider/auth.dart';
-import 'package:another_todo_app/provider/firestore.dart';
-import 'package:another_todo_app/provider/navigation.dart';
-import 'package:another_todo_app/provider/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
-import '../../constants.dart';
+import '../../provider/auth.dart';
+import '../../provider/firestore.dart';
+import '../../provider/navigation.dart';
+import '../../provider/theme.dart';
 
 class SettingsSheet extends StatelessWidget {
   @override
