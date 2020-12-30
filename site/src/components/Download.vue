@@ -25,6 +25,7 @@ export default {
   border-radius: 10px; /* 5px rounded corners */
   width: 350px;
   height: 100%;
+  font-family: 'poppinsitalic';
 }
 
 .card:hover {

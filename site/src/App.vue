@@ -20,7 +20,7 @@ export default {
 <style>
 #app {
   height: 100vh;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'poppinsbold';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -271,5 +271,29 @@ body {
   .end {
     align-items: center;
   }
+}
+
+@font-face {
+  font-family: "poppinsbold";
+  src: url("./assets/poppins-bold-webfont.woff2") format("woff2"),
+    url("./assets/poppins-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsitalic";
+  src: url("./assets/poppins-italic-webfont.woff2") format("woff2"),
+    url("./assets/poppins-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppinsregular";
+  src: url("./assets/poppins-regular-webfont.woff2") format("woff2"),
+    url("./assets/poppins-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 </style>
