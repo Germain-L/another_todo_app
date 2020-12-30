@@ -1,11 +1,11 @@
 <template>
   <a
-    href="https://play.google.com/store/apps/details?id=com.germainleignel.another_todo_app"
+    href="https://github.com/Germain-L/another_todo_app/releases/download/v1/AnotherTodo.apk"
     class="card center"
     target="_blank"
   >
     <div>
-      <h2>Available soon</h2>
+      <h2>.apk available now</h2>
     </div>
   </a>
 </template>
