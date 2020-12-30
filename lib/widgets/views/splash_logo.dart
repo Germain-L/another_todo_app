@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SplashLogo extends StatefulWidget {
@@ -34,15 +33,26 @@ class _SplashLogoState extends State<SplashLogo>
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Another Todo",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
+              AnimatedBuilder(
+                animation: animation,
+                builder: (BuildContext context, Widget child) {
+                  return Transform.translate(
+                    offset: Offset(0, animation.value * 100),
+                    child: child,
+                  );
+                },
+                child: Text(
+                  "Another Todo",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700,
+                    // decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
-              Divider(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.12,
+              ),
               AnimatedBuilder(
                 animation: animation,
                 builder: (BuildContext context, Widget child) {
