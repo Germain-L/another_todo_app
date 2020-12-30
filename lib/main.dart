@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'models/themes/dark_theme.dart';
-import 'models/themes/light_theme.dart';
+import 'models/themes/themes.dart';
 import 'pages/home.dart';
 import 'pages/splash.dart';
 import 'provider/auth.dart';

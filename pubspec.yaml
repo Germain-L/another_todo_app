@@ -77,5 +77,15 @@ flutter:
           weight: 700
 
         - asset: assets/inter/Inter-Regular.ttf
+
+    - family: Poppins
+      fonts:
+        - asset: assets/Poppins/Poppins-Bold.ttf
+          weight: 700
+
+        - asset: assets/Poppins/Poppins-Italic.ttf
+          style: italic
+
+        - asset: assets/Poppins/Poppins-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

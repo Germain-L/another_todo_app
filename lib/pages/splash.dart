@@ -1,11 +1,9 @@
-import 'package:another_todo_app/provider/auth.dart';
-import 'package:another_todo_app/widgets/buttons/custom_material_button.dart';
-import 'package:another_todo_app/widgets/views/splash_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/dialogs/register_dialog.dart';
-import '../widgets/dialogs/sign_in_dialog.dart';
+import '../provider/auth.dart';
+import '../widgets/buttons/custom_material_button.dart';
+import '../widgets/views/splash_logo.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

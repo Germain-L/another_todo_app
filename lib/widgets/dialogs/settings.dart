@@ -1,10 +1,10 @@
-import 'package:another_todo_app/widgets/buttons/custom_material_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/auth.dart';
 import '../../provider/theme.dart';
+import '../buttons/custom_material_button.dart';
 
 class SettingsSheet extends StatelessWidget {
   @override
