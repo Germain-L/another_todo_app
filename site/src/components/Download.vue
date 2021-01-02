@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://github.com/Germain-L/another_todo_app/releases/download/v1/AnotherTodo.apk"
+    href ="https://play.google.com/store/apps/details?id=com.germainleignel.another_todo_app"
     class="card center"
     target="_blank"
   >
