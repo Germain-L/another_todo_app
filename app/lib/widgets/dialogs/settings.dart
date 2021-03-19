@@ -73,13 +73,13 @@ class SettingsSheet extends StatelessWidget {
             //               "Deleting your account cannot be undone, we will erase all your data.",
             //               style: TextStyle(fontSize: 13)),
             //           actions: [
-            //             FlatButton(
+            //             TextButton (
             //               child: Text("Cancel"),
             //               onPressed: () {
             //                 Navigator.pop(context);
             //               },
             //             ),
-            //             FlatButton(
+            //             TextButton (
             //               child: Text(
             //                 "Delete",
             //                 style: TextStyle(

@@ -8,91 +8,94 @@ void signInDialog(BuildContext context) async {
   bool isActivated = false;
   await showDialog<String>(
     context: context,
-    child: StatefulBuilder(
-      builder: (BuildContext context, void Function(void Function()) setState) {
-        FocusNode emailNode = FocusNode();
-        FocusNode passwordNode = FocusNode();
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder:
+            (BuildContext context, void Function(void Function()) setState) {
+          FocusNode emailNode = FocusNode();
+          FocusNode passwordNode = FocusNode();
 
-        final authProvider = Provider.of<AuthProvider>(context);
+          final authProvider = Provider.of<AuthProvider>(context);
 
-        bool displayError = false;
-        String error;
+          bool displayError = false;
+          String error;
 
-        TextEditingController emailController = TextEditingController();
-        TextEditingController passwordController = TextEditingController();
+          TextEditingController emailController = TextEditingController();
+          TextEditingController passwordController = TextEditingController();
 
-        signIn() async {
-          try {
-            setState(() {
-              isActivated = true;
-            });
+          signIn() async {
+            try {
+              setState(() {
+                isActivated = true;
+              });
 
-            await authProvider.signIn(
-              emailController.text,
-              passwordController.text,
-            );
+              await authProvider.signIn(
+                emailController.text,
+                passwordController.text,
+              );
 
-            Navigator.pop(context);
-          } catch (e) {
-            setState(() {
-              displayError = true;
-              error = e.message;
-              isActivated = false;
-            });
+              Navigator.pop(context);
+            } catch (e) {
+              setState(() {
+                displayError = true;
+                error = e.message;
+                isActivated = false;
+              });
+            }
           }
-        }
 
-        return AlertDialog(
-          contentPadding: const EdgeInsets.all(16.0),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              if (displayError) Text(error),
-              TextField(
-                autofocus: true,
-                focusNode: emailNode,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  hintText: 'todo@gmail.com',
+          return AlertDialog(
+            contentPadding: const EdgeInsets.all(16.0),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                if (displayError) Text(error),
+                TextField(
+                  autofocus: true,
+                  focusNode: emailNode,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    hintText: 'todo@gmail.com',
+                  ),
+                  controller: emailController,
+                  onSubmitted: (String s) {
+                    FocusScope.of(context).requestFocus(passwordNode);
+                  },
                 ),
-                controller: emailController,
-                onSubmitted: (String s) {
-                  FocusScope.of(context).requestFocus(passwordNode);
+                TextField(
+                  focusNode: passwordNode,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                  ),
+                  controller: passwordController,
+                  onSubmitted: (String s) async => signIn(),
+                ),
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('CANCEL'),
+                onPressed: () {
+                  Navigator.pop(context);
                 },
               ),
-              TextField(
-                focusNode: passwordNode,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                ),
-                controller: passwordController,
-                onSubmitted: (String s) async => signIn(),
+              TextButton(
+                child: const Text('SIGN IN'),
+                onPressed: () async => signIn(),
               ),
+              isActivated
+                  ? Transform.scale(
+                      scale: 0.5,
+                      child: SpinKitWave(
+                        color: Theme.of(context).textTheme.bodyText1.color,
+                      ),
+                    )
+                  : null,
             ],
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: const Text('CANCEL'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            FlatButton(
-              child: const Text('SIGN IN'),
-              onPressed: () async => signIn(),
-            ),
-            isActivated
-                ? Transform.scale(
-                    scale: 0.5,
-                    child: SpinKitWave(
-                      color: Theme.of(context).textTheme.bodyText1.color,
-                    ),
-                  )
-                : null,
-          ],
-        );
-      },
-    ),
+          );
+        },
+      );
+    },
   );
 }
